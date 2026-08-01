@@ -6,3 +6,12 @@ allowBuilds:
   nx: true
   "@swc/core": false
   esbuild: false
+  unrs-resolver: true
+  "@nestjs/core": false
+  '@parcel/watcher': true
+  less: true
+  core-js: false
+  prisma: true
+  "@prisma/client": true
+  '@prisma/engines': true
+  better-sqlite3: false

@@ -1,5 +1,9 @@
 {
   "name": "@darkcloud-project-demostration/frontend",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "three": "^0.185.1",
+    "vanta": "^0.5.24"
+  }
 }

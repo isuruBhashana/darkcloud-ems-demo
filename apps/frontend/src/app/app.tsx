@@ -1,45 +1,76 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
-import NxWelcome from "./nx-welcome";
-
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import { AuthGuard } from '../components/layout/auth-guard';
+import { AttendancePage } from '../pages/attendance/index';
+import { DashboardPage } from '../pages/dashboard';
+import { DepartmentsPage } from '../pages/departments/index';
+import { EmployeesPage } from '../pages/employees/index';
+import { LeavePage } from '../pages/leave/index';
+import { LoginPage } from '../pages/login';
+import { ReportsPage } from '../pages/reports/index';
+import { SettingsPage } from '../pages/settings';
 
 export function App() {
   return (
-    <div>
-      <NxWelcome title="@darkcloud-project-demostration/frontend"/>
-    
-    {/* START: routes */}
-    {/* These routes and navigation have been generated for you */}
-    {/* Feel free to move and update them to fit your needs */}
-    <br/>
-    <hr/>
-    <br/>
-    <div role="navigation">
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/page-2">Page 2</Link></li>
-      </ul>
-    </div>
     <Routes>
+      <Route path="/login" element={<LoginPage />} />
       <Route
         path="/"
         element={
-          <div>This is the generated root route. <Link to="/page-2">Click here for page 2.</Link></div>
+          <AuthGuard>
+            <DashboardPage />
+          </AuthGuard>
         }
       />
       <Route
-        path="/page-2"
+        path="/employees"
         element={
-          <div><Link to="/">Click here to go back to root page.</Link></div>
+          <AuthGuard>
+            <EmployeesPage />
+          </AuthGuard>
+        }
+      />
+      <Route
+        path="/departments"
+        element={
+          <AuthGuard>
+            <DepartmentsPage />
+          </AuthGuard>
+        }
+      />
+      <Route
+        path="/attendance"
+        element={
+          <AuthGuard>
+            <AttendancePage />
+          </AuthGuard>
+        }
+      />
+      <Route
+        path="/leave"
+        element={
+          <AuthGuard>
+            <LeavePage />
+          </AuthGuard>
+        }
+      />
+      <Route
+        path="/reports"
+        element={
+          <AuthGuard>
+            <ReportsPage />
+          </AuthGuard>
+        }
+      />
+      <Route
+        path="/settings"
+        element={
+          <AuthGuard>
+            <SettingsPage />
+          </AuthGuard>
         }
       />
     </Routes>
-    {/* END: routes */}
-    </div>
   );
 }
 
 export default App;
-
-
