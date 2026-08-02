@@ -13,14 +13,12 @@ describe('App', () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it('should have a greeting as the title', () => {
+  it('should render EMS Portal title', () => {
     const { getAllByText } = render(
       <BrowserRouter>
         <App />
       </BrowserRouter>,
     );
-    expect(
-      getAllByText(/Welcome @darkcloud-project-demostration\/frontend/gi).length > 0,
-    ).toBeTruthy();
+    expect(getAllByText(/EMS Portal/i).length > 0).toBeTruthy();
   });
 });
