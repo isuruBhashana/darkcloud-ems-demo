@@ -1,0 +1,45 @@
+# Dependencies
+node_modules
+
+# Build output
+**/dist
+.nx
+
+# Version control
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+**/Dockerfile
+**/docker-compose*.yml
+**/.dockerignore
+
+# Testing
+**/coverage
+**/test-output
+
+# Infra
+infra/cdk.out
+infra/node_modules
+
+# Misc
+*.md
+LICENSE
+.husky
+.editorconfig
+biome.json

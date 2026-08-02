@@ -4,6 +4,15 @@ import { prismaAdapter } from 'better-auth/adapters/prisma';
 
 const prisma = new PrismaClient();
 
+const getTrustedOrigins = (): string[] => {
+  const origins = ['https://darkcloudems.online'];
+  const envOrigins = process.env.CORS_ORIGIN;
+  if (envOrigins && envOrigins !== '*') {
+    origins.push(...envOrigins.split(','));
+  }
+  return Array.from(new Set(origins));
+};
+
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: 'postgresql',
@@ -11,5 +20,5 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
-  trustedOrigins: ['http://localhost:4200'],
+  trustedOrigins: getTrustedOrigins(),
 });

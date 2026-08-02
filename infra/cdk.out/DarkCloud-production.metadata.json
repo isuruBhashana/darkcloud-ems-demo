@@ -1,0 +1,1220 @@
+{
+  "/DarkCloud-production": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm, .pnpm..."
+      ]
+    },
+    {
+      "type": "aws:cdk:stack-tags",
+      "data": [
+        {
+          "key": "Environment",
+          "value": "production"
+        },
+        {
+          "key": "ManagedBy",
+          "value": "CDK"
+        },
+        {
+          "key": "Project",
+          "value": "DarkCloud-EMS"
+        }
+      ]
+    }
+  ],
+  "/DarkCloud-production/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "....pnpm...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "....pnpm...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/VpcId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcIdF213FEE5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:123:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Database/DbEndpoint": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DatabaseDbEndpointC40AEC92"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new DatabaseConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\database-stack.ts:62:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:31:20)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Database/DbSecretArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DatabaseDbSecretArnCBC92421"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new DatabaseConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\database-stack.ts:67:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:31:20)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/AlbDnsName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAlbDnsName72DB73B1"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:247:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/FrontendEcrUri": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsFrontendEcrUri74DAADE7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:253:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/BackendEcrUri": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsBackendEcrUriE7E7E433"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:258:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/ClusterName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsClusterNameC576E94D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:263:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelServiceName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelServiceName3093D99F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new TunnelConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\tunnel-stack.ts:94:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:49:18)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelTokenSecretArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelTokenSecretArn7FAE083B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new TunnelConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\tunnel-stack.ts:99:3)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:49:18)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in .pnpm...",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:34:5)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpc7FB7348F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/IGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcIGW6BEA7B02"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/VPCGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcVPCGW8F3799B5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/AlbSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkAlbSg193DDF6A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:53:27)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/AlbSg/from DarkCloudproductionNetworkTunnelSg31224E3D:80": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkAlbSgfromDarkCloudproductionNetworkTunnelSg31224E3D80758C1B80"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:95:25)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/FrontendSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkFrontendSgCE5886B3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:61:32)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/FrontendSg/from DarkCloudproductionNetworkAlbSg73EB15D1:80": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkFrontendSgfromDarkCloudproductionNetworkAlbSg73EB15D180AC665CA7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:102:30)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/BackendSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkBackendSg575CA286"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:69:31)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/BackendSg/from DarkCloudproductionNetworkAlbSg73EB15D1:3000": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkBackendSgfromDarkCloudproductionNetworkAlbSg73EB15D1300078D65556"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:109:29)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/DatabaseSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkDatabaseSg113CF1C6"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:77:32)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/DatabaseSg/from DarkCloudproductionNetworkBackendSgD609D190:5432": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkDatabaseSgfromDarkCloudproductionNetworkBackendSgD609D1905432ADFA7343"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:116:30)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/TunnelSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkTunnelSg90C2F1BA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:85:30)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Database/DbCredentials/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DatabaseDbCredentials437D3C11"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseSecret2 in .pnpm...",
+        "new DatabaseConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\database-stack.ts:28:22)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:31:20)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Database/PostgresDb/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DatabasePostgresDbB06DC1C2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseInstance2 in .pnpm...",
+        "new DatabaseConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\database-stack.ts:34:19)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:31:20)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/FrontendRepo/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsFrontendRepoD511FE88"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:38:29)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/BackendRepo/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsBackendRepoA17601E2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:50:28)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/Cluster/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsClusterEAC0C105"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Cluster2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:63:18)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/InternalAlb/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsInternalAlb5BF11012"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancer2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:70:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/FrontendTaskDef/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsFrontendTaskDef3696CF67"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateTaskDefinition2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:91:27)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/FrontendLogs/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsFrontendLogs06A39C10"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:101:28)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/FrontendService/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsFrontendService1A8D0A02"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateService2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:127:27)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/BackendTaskDef/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsBackendTaskDef9886B40F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateTaskDefinition2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:143:26)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/BackendLogs/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsBackendLogs48A9B28A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:153:27)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/BackendService/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsBackendServiceAFC1B170"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateService2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:197:26)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelTaskDef/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelTaskDef1948B257"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateTaskDefinition2 in .pnpm...",
+        "new TunnelConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\tunnel-stack.ts:42:19)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:49:18)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelLogs/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelLogsC9AE3F4A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in .pnpm...",
+        "new TunnelConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\tunnel-stack.ts:48:20)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:49:18)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelService/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelServiceB7ECB85A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateService2 in .pnpm...",
+        "new TunnelConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\tunnel-stack.ts:78:25)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:49:18)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet1Subnet36933139"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:268 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet1RouteTable30235CE2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:268 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet1RouteTableAssociation643926C7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:268 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet1DefaultRoute31EC04EC"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:208 in .pnpm...",
+        "Array.forEach (:)",
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet1/EIP": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet1EIPE0D52090"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet1/NATGateway": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet1NATGateway64781A21"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet2SubnetC427CCE0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:268 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet2RouteTable0FACEBB2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:268 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet2RouteTableAssociationC662643B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:268 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PublicSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPublicSubnet2DefaultRoute0CF082AB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:208 in .pnpm...",
+        "Array.forEach (:)",
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PrivateSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPrivateSubnet1Subnet6DD86AE6"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:270 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PrivateSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPrivateSubnet1RouteTable7D7AA3CD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:270 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PrivateSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPrivateSubnet1RouteTableAssociation327CA62F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:270 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PrivateSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPrivateSubnet1DefaultRoute08635105"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PrivateSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPrivateSubnet2Subnet1BDBE877"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:270 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PrivateSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPrivateSubnet2RouteTableC48862D1"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:270 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PrivateSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPrivateSubnet2RouteTableAssociation89A2F1E8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:270 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/PrivateSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcPrivateSubnet2DefaultRouteA15DC6D5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in .pnpm...",
+        "new NetworkConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\network-stack.ts:28:14)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:26:19)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/IsolatedSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcIsolatedSubnet1Subnet0400477E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:272 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/IsolatedSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcIsolatedSubnet1RouteTableC39A3F61"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:272 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/IsolatedSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcIsolatedSubnet1RouteTableAssociation95EB126D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:272 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/IsolatedSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcIsolatedSubnet2SubnetF65B365A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:272 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/IsolatedSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcIsolatedSubnet2RouteTable77E6320E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:272 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Network/Vpc/IsolatedSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NetworkVpcIsolatedSubnet2RouteTableAssociationC53FE45A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\Lahiru\\Desktop\\darkcloud\\node_modules\\.pnpm\\aws-cdk-lib@2.263.0_constructs@10.8.0\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:272 in .pnpm...",
+        "Array.forEach (:)",
+        "....pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Database/DbCredentials/Attachment/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DatabaseDbCredentialsAttachmentCB7EFF87"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseInstance2 in .pnpm...",
+        "new DatabaseConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\database-stack.ts:34:19)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:31:20)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals, .pnpm..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Database/PostgresDb/SubnetGroup/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DatabasePostgresDbSubnetGroup15FCB4C4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseInstance2 in .pnpm...",
+        "new DatabaseConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\database-stack.ts:34:19)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:31:20)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/InternalAlb/HttpListener/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsInternalAlbHttpListener205929B4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:80:29)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/FrontendTaskDef/TaskRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsFrontendTaskDefTaskRoleF3ADB8CB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateTaskDefinition2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:91:27)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/FrontendTaskDef/ExecutionRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsFrontendTaskDefExecutionRole85F8C779"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "....pnpm...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/BackendTaskDef/TaskRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsBackendTaskDefTaskRole4541B107"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateTaskDefinition2 in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:143:26)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/BackendTaskDef/ExecutionRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsBackendTaskDefExecutionRole6E96AB35"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "....pnpm...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelTaskDef/TaskRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelTaskDefTaskRole16F31D55"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new FargateTaskDefinition2 in .pnpm...",
+        "new TunnelConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\tunnel-stack.ts:42:19)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:49:18)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelTaskDef/ExecutionRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelTaskDefExecutionRole582DE666"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "....pnpm...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/InternalAlb/HttpListener/BackendTargetGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsInternalAlbHttpListenerBackendTargetGroupF60072D0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:215:39)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/InternalAlb/HttpListener/BackendTargetRule/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsInternalAlbHttpListenerBackendTargetRule42FB2E7A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:215:39)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/InternalAlb/HttpListener/FrontendTargetGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsInternalAlbHttpListenerFrontendTargetGroupED4E2A53"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in .pnpm...",
+        "new EcsConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\ecs-stack.ts:232:40)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:38:15)",
+        "<anonymous> (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\bin\\app.ts:25:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/FrontendTaskDef/ExecutionRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsFrontendTaskDefExecutionRoleDefaultPolicyD67C76CA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "....pnpm...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Ecs/BackendTaskDef/ExecutionRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsBackendTaskDefExecutionRoleDefaultPolicyA31E7C84"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "....pnpm...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelTaskDef/TaskRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelTaskDefTaskRoleDefaultPolicy4FE0DABD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...SecretBase.grantRead in .pnpm...",
+        "new TunnelConstruct (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\tunnel-stack.ts:75:21)",
+        "new DarkCloudStack (C:\\Users\\Lahiru\\Desktop\\darkcloud\\infra\\lib\\main-stack.ts:49:18)"
+      ]
+    }
+  ],
+  "/DarkCloud-production/Tunnel/TunnelTaskDef/ExecutionRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TunnelTunnelTaskDefExecutionRoleDefaultPolicyAF83A296"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "....pnpm...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ]
+}

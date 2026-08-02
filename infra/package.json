@@ -1,0 +1,23 @@
+{
+  "name": "@darkcloud-project-demostration/infra",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "synth": "cdk synth",
+    "deploy": "cdk deploy --all --require-approval broadening",
+    "destroy": "cdk destroy --all",
+    "diff": "cdk diff"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.200.0",
+    "constructs": "^10.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "ts-node": "^10.9.2",
+    "source-map-support": "^0.5.21",
+    "typescript": "~6.0.3",
+    "aws-cdk": "^2.200.0"
+  }
+}

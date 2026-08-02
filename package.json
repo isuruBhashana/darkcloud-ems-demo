@@ -12,7 +12,13 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
-    "check": "biome check --write ."
+    "check": "biome check --write .",
+    "cdk:synth": "cd infra && npx cdk synth",
+    "cdk:deploy": "cd infra && npx cdk deploy --all --require-approval broadening",
+    "cdk:diff": "cd infra && npx cdk diff",
+    "cdk:destroy": "cd infra && npx cdk destroy --all",
+    "docker:build:frontend": "docker build -f apps/frontend/Dockerfile -t darkcloud-frontend .",
+    "docker:build:backend": "docker build -f apps/backend/Dockerfile -t darkcloud-backend ."
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

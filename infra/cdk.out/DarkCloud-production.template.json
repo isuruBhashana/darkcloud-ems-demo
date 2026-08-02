@@ -1,0 +1,2603 @@
+{
+  "Description": "DarkCloud EMS - production environment",
+  "Resources": {
+    "NetworkVpc7FB7348F": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "darkcloud-production-vpc"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/Resource"
+      }
+    },
+    "NetworkVpcPublicSubnet1Subnet36933139": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "us-east-1a",
+        "CidrBlock": "10.0.0.0/24",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PublicSubnet1"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet1/Subnet"
+      }
+    },
+    "NetworkVpcPublicSubnet1RouteTable30235CE2": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PublicSubnet1"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet1/RouteTable"
+      }
+    },
+    "NetworkVpcPublicSubnet1RouteTableAssociation643926C7": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "NetworkVpcPublicSubnet1RouteTable30235CE2"
+        },
+        "SubnetId": {
+          "Ref": "NetworkVpcPublicSubnet1Subnet36933139"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet1/RouteTableAssociation"
+      }
+    },
+    "NetworkVpcPublicSubnet1DefaultRoute31EC04EC": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "NetworkVpcIGW6BEA7B02"
+        },
+        "RouteTableId": {
+          "Ref": "NetworkVpcPublicSubnet1RouteTable30235CE2"
+        }
+      },
+      "DependsOn": ["NetworkVpcVPCGW8F3799B5"],
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet1/DefaultRoute"
+      }
+    },
+    "NetworkVpcPublicSubnet1EIPE0D52090": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PublicSubnet1"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet1/EIP"
+      }
+    },
+    "NetworkVpcPublicSubnet1NATGateway64781A21": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "AllocationId": {
+          "Fn::GetAtt": ["NetworkVpcPublicSubnet1EIPE0D52090", "AllocationId"]
+        },
+        "SubnetId": {
+          "Ref": "NetworkVpcPublicSubnet1Subnet36933139"
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PublicSubnet1"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "DependsOn": [
+        "NetworkVpcPublicSubnet1DefaultRoute31EC04EC",
+        "NetworkVpcPublicSubnet1RouteTableAssociation643926C7"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet1/NATGateway"
+      }
+    },
+    "NetworkVpcPublicSubnet2SubnetC427CCE0": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "us-east-1b",
+        "CidrBlock": "10.0.1.0/24",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PublicSubnet2"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet2/Subnet"
+      }
+    },
+    "NetworkVpcPublicSubnet2RouteTable0FACEBB2": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PublicSubnet2"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet2/RouteTable"
+      }
+    },
+    "NetworkVpcPublicSubnet2RouteTableAssociationC662643B": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "NetworkVpcPublicSubnet2RouteTable0FACEBB2"
+        },
+        "SubnetId": {
+          "Ref": "NetworkVpcPublicSubnet2SubnetC427CCE0"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet2/RouteTableAssociation"
+      }
+    },
+    "NetworkVpcPublicSubnet2DefaultRoute0CF082AB": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "NetworkVpcIGW6BEA7B02"
+        },
+        "RouteTableId": {
+          "Ref": "NetworkVpcPublicSubnet2RouteTable0FACEBB2"
+        }
+      },
+      "DependsOn": ["NetworkVpcVPCGW8F3799B5"],
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PublicSubnet2/DefaultRoute"
+      }
+    },
+    "NetworkVpcPrivateSubnet1Subnet6DD86AE6": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "us-east-1a",
+        "CidrBlock": "10.0.2.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PrivateSubnet1"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PrivateSubnet1/Subnet"
+      }
+    },
+    "NetworkVpcPrivateSubnet1RouteTable7D7AA3CD": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PrivateSubnet1"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PrivateSubnet1/RouteTable"
+      }
+    },
+    "NetworkVpcPrivateSubnet1RouteTableAssociation327CA62F": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "NetworkVpcPrivateSubnet1RouteTable7D7AA3CD"
+        },
+        "SubnetId": {
+          "Ref": "NetworkVpcPrivateSubnet1Subnet6DD86AE6"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PrivateSubnet1/RouteTableAssociation"
+      }
+    },
+    "NetworkVpcPrivateSubnet1DefaultRoute08635105": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "NetworkVpcPublicSubnet1NATGateway64781A21"
+        },
+        "RouteTableId": {
+          "Ref": "NetworkVpcPrivateSubnet1RouteTable7D7AA3CD"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PrivateSubnet1/DefaultRoute"
+      }
+    },
+    "NetworkVpcPrivateSubnet2Subnet1BDBE877": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "us-east-1b",
+        "CidrBlock": "10.0.3.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PrivateSubnet2"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PrivateSubnet2/Subnet"
+      }
+    },
+    "NetworkVpcPrivateSubnet2RouteTableC48862D1": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/PrivateSubnet2"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PrivateSubnet2/RouteTable"
+      }
+    },
+    "NetworkVpcPrivateSubnet2RouteTableAssociation89A2F1E8": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "NetworkVpcPrivateSubnet2RouteTableC48862D1"
+        },
+        "SubnetId": {
+          "Ref": "NetworkVpcPrivateSubnet2Subnet1BDBE877"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PrivateSubnet2/RouteTableAssociation"
+      }
+    },
+    "NetworkVpcPrivateSubnet2DefaultRouteA15DC6D5": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "NetworkVpcPublicSubnet1NATGateway64781A21"
+        },
+        "RouteTableId": {
+          "Ref": "NetworkVpcPrivateSubnet2RouteTableC48862D1"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/PrivateSubnet2/DefaultRoute"
+      }
+    },
+    "NetworkVpcIsolatedSubnet1Subnet0400477E": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "us-east-1a",
+        "CidrBlock": "10.0.4.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/IsolatedSubnet1"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/IsolatedSubnet1/Subnet"
+      }
+    },
+    "NetworkVpcIsolatedSubnet1RouteTableC39A3F61": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/IsolatedSubnet1"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/IsolatedSubnet1/RouteTable"
+      }
+    },
+    "NetworkVpcIsolatedSubnet1RouteTableAssociation95EB126D": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "NetworkVpcIsolatedSubnet1RouteTableC39A3F61"
+        },
+        "SubnetId": {
+          "Ref": "NetworkVpcIsolatedSubnet1Subnet0400477E"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/IsolatedSubnet1/RouteTableAssociation"
+      }
+    },
+    "NetworkVpcIsolatedSubnet2SubnetF65B365A": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "us-east-1b",
+        "CidrBlock": "10.0.5.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/IsolatedSubnet2"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/IsolatedSubnet2/Subnet"
+      }
+    },
+    "NetworkVpcIsolatedSubnet2RouteTable77E6320E": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "DarkCloud-production/Network/Vpc/IsolatedSubnet2"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/IsolatedSubnet2/RouteTable"
+      }
+    },
+    "NetworkVpcIsolatedSubnet2RouteTableAssociationC53FE45A": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "NetworkVpcIsolatedSubnet2RouteTable77E6320E"
+        },
+        "SubnetId": {
+          "Ref": "NetworkVpcIsolatedSubnet2SubnetF65B365A"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/IsolatedSubnet2/RouteTableAssociation"
+      }
+    },
+    "NetworkVpcIGW6BEA7B02": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Name",
+            "Value": "darkcloud-production-vpc"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/IGW"
+      }
+    },
+    "NetworkVpcVPCGW8F3799B5": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "InternetGatewayId": {
+          "Ref": "NetworkVpcIGW6BEA7B02"
+        },
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/Vpc/VPCGW"
+      }
+    },
+    "NetworkAlbSg193DDF6A": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Internal ALB - accepts traffic from cloudflared only",
+        "GroupName": "darkcloud-production-alb-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow from anyone on port 80",
+            "FromPort": 80,
+            "IpProtocol": "tcp",
+            "ToPort": 80
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/AlbSg/Resource"
+      }
+    },
+    "NetworkAlbSgfromDarkCloudproductionNetworkTunnelSg31224E3D80758C1B80": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "Description": "Allow cloudflared to reach Internal ALB",
+        "FromPort": 80,
+        "GroupId": {
+          "Fn::GetAtt": ["NetworkAlbSg193DDF6A", "GroupId"]
+        },
+        "IpProtocol": "tcp",
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": ["NetworkTunnelSg90C2F1BA", "GroupId"]
+        },
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/AlbSg/from DarkCloudproductionNetworkTunnelSg31224E3D:80"
+      }
+    },
+    "NetworkFrontendSgCE5886B3": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Frontend Fargate tasks",
+        "GroupName": "darkcloud-production-frontend-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/FrontendSg/Resource"
+      }
+    },
+    "NetworkFrontendSgfromDarkCloudproductionNetworkAlbSg73EB15D180AC665CA7": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "Description": "Allow ALB to reach frontend",
+        "FromPort": 80,
+        "GroupId": {
+          "Fn::GetAtt": ["NetworkFrontendSgCE5886B3", "GroupId"]
+        },
+        "IpProtocol": "tcp",
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": ["NetworkAlbSg193DDF6A", "GroupId"]
+        },
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/FrontendSg/from DarkCloudproductionNetworkAlbSg73EB15D1:80"
+      }
+    },
+    "NetworkBackendSg575CA286": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Backend Fargate tasks",
+        "GroupName": "darkcloud-production-backend-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/BackendSg/Resource"
+      }
+    },
+    "NetworkBackendSgfromDarkCloudproductionNetworkAlbSg73EB15D1300078D65556": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "Description": "Allow ALB to reach backend",
+        "FromPort": 3000,
+        "GroupId": {
+          "Fn::GetAtt": ["NetworkBackendSg575CA286", "GroupId"]
+        },
+        "IpProtocol": "tcp",
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": ["NetworkAlbSg193DDF6A", "GroupId"]
+        },
+        "ToPort": 3000
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/BackendSg/from DarkCloudproductionNetworkAlbSg73EB15D1:3000"
+      }
+    },
+    "NetworkDatabaseSg113CF1C6": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "RDS PostgreSQL - accepts traffic from backend only",
+        "GroupName": "darkcloud-production-db-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "255.255.255.255/32",
+            "Description": "Disallow all traffic",
+            "FromPort": 252,
+            "IpProtocol": "icmp",
+            "ToPort": 86
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/DatabaseSg/Resource"
+      }
+    },
+    "NetworkDatabaseSgfromDarkCloudproductionNetworkBackendSgD609D1905432ADFA7343": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "Description": "Allow backend to reach RDS",
+        "FromPort": 5432,
+        "GroupId": {
+          "Fn::GetAtt": ["NetworkDatabaseSg113CF1C6", "GroupId"]
+        },
+        "IpProtocol": "tcp",
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": ["NetworkBackendSg575CA286", "GroupId"]
+        },
+        "ToPort": 5432
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/DatabaseSg/from DarkCloudproductionNetworkBackendSgD609D190:5432"
+      }
+    },
+    "NetworkTunnelSg90C2F1BA": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "cloudflared tunnel daemon - egress only",
+        "GroupName": "darkcloud-production-tunnel-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Network/TunnelSg/Resource"
+      }
+    },
+    "DatabaseDbCredentials437D3C11": {
+      "Type": "AWS::SecretsManager::Secret",
+      "Properties": {
+        "Description": {
+          "Fn::Join": [
+            "",
+            [
+              "Generated by the CDK for stack: ",
+              {
+                "Ref": "AWS::StackName"
+              }
+            ]
+          ]
+        },
+        "GenerateSecretString": {
+          "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
+          "GenerateStringKey": "password",
+          "PasswordLength": 30,
+          "SecretStringTemplate": "{\"username\":\"darkcloud_admin\"}"
+        },
+        "Name": "darkcloud/production/db-credentials",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Database/DbCredentials/Resource"
+      }
+    },
+    "DatabaseDbCredentialsAttachmentCB7EFF87": {
+      "Type": "AWS::SecretsManager::SecretTargetAttachment",
+      "Properties": {
+        "SecretId": {
+          "Ref": "DatabaseDbCredentials437D3C11"
+        },
+        "TargetId": {
+          "Ref": "DatabasePostgresDbB06DC1C2"
+        },
+        "TargetType": "AWS::RDS::DBInstance"
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Database/DbCredentials/Attachment/Resource"
+      }
+    },
+    "DatabasePostgresDbSubnetGroup15FCB4C4": {
+      "Type": "AWS::RDS::DBSubnetGroup",
+      "Properties": {
+        "DBSubnetGroupDescription": "Subnet group for PostgresDb database",
+        "SubnetIds": [
+          {
+            "Ref": "NetworkVpcIsolatedSubnet1Subnet0400477E"
+          },
+          {
+            "Ref": "NetworkVpcIsolatedSubnet2SubnetF65B365A"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Database/PostgresDb/SubnetGroup/Default"
+      }
+    },
+    "DatabasePostgresDbB06DC1C2": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "AllocatedStorage": "20",
+        "AutoMinorVersionUpgrade": true,
+        "BackupRetentionPeriod": 1,
+        "CopyTagsToSnapshot": true,
+        "DBInstanceClass": "db.t3.micro",
+        "DBInstanceIdentifier": "darkcloud-production-db",
+        "DBName": "darkcloud_ems",
+        "DBSubnetGroupName": {
+          "Ref": "DatabasePostgresDbSubnetGroup15FCB4C4"
+        },
+        "DeletionProtection": false,
+        "Engine": "postgres",
+        "EngineVersion": "16.4",
+        "MasterUserPassword": {
+          "Fn::Join": [
+            "",
+            [
+              "{{resolve:secretsmanager:",
+              {
+                "Ref": "DatabaseDbCredentials437D3C11"
+              },
+              ":SecretString:password::}}"
+            ]
+          ]
+        },
+        "MasterUsername": {
+          "Fn::Join": [
+            "",
+            [
+              "{{resolve:secretsmanager:",
+              {
+                "Ref": "DatabaseDbCredentials437D3C11"
+              },
+              ":SecretString:username::}}"
+            ]
+          ]
+        },
+        "MaxAllocatedStorage": 50,
+        "MultiAZ": false,
+        "PubliclyAccessible": false,
+        "StorageEncrypted": true,
+        "StorageType": "gp2",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "VPCSecurityGroups": [
+          {
+            "Fn::GetAtt": ["NetworkDatabaseSg113CF1C6", "GroupId"]
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Database/PostgresDb/Resource"
+      }
+    },
+    "EcsFrontendRepoD511FE88": {
+      "Type": "AWS::ECR::Repository",
+      "Properties": {
+        "EmptyOnDelete": true,
+        "LifecyclePolicy": {
+          "LifecyclePolicyText": "{\"rules\":[{\"rulePriority\":1,\"description\":\"Keep only 5 most recent images\",\"selection\":{\"tagStatus\":\"any\",\"countType\":\"imageCountMoreThan\",\"countNumber\":5},\"action\":{\"type\":\"expire\"}}]}"
+        },
+        "RepositoryName": "darkcloud-production-frontend",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/FrontendRepo/Resource"
+      }
+    },
+    "EcsBackendRepoA17601E2": {
+      "Type": "AWS::ECR::Repository",
+      "Properties": {
+        "EmptyOnDelete": true,
+        "LifecyclePolicy": {
+          "LifecyclePolicyText": "{\"rules\":[{\"rulePriority\":1,\"description\":\"Keep only 5 most recent images\",\"selection\":{\"tagStatus\":\"any\",\"countType\":\"imageCountMoreThan\",\"countNumber\":5},\"action\":{\"type\":\"expire\"}}]}"
+        },
+        "RepositoryName": "darkcloud-production-backend",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/BackendRepo/Resource"
+      }
+    },
+    "EcsClusterEAC0C105": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": "darkcloud-production",
+        "ClusterSettings": [
+          {
+            "Name": "containerInsights",
+            "Value": "enhanced"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/Cluster/Resource"
+      }
+    },
+    "EcsInternalAlb5BF11012": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "Properties": {
+        "LoadBalancerAttributes": [
+          {
+            "Key": "deletion_protection.enabled",
+            "Value": "false"
+          }
+        ],
+        "Name": "darkcloud-production-alb",
+        "Scheme": "internal",
+        "SecurityGroups": [
+          {
+            "Fn::GetAtt": ["NetworkAlbSg193DDF6A", "GroupId"]
+          }
+        ],
+        "Subnets": [
+          {
+            "Ref": "NetworkVpcPrivateSubnet1Subnet6DD86AE6"
+          },
+          {
+            "Ref": "NetworkVpcPrivateSubnet2Subnet1BDBE877"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "Type": "application"
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/InternalAlb/Resource"
+      }
+    },
+    "EcsInternalAlbHttpListener205929B4": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "Properties": {
+        "DefaultActions": [
+          {
+            "TargetGroupArn": {
+              "Ref": "EcsInternalAlbHttpListenerFrontendTargetGroupED4E2A53"
+            },
+            "Type": "forward"
+          }
+        ],
+        "LoadBalancerArn": {
+          "Ref": "EcsInternalAlb5BF11012"
+        },
+        "Port": 80,
+        "Protocol": "HTTP"
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/InternalAlb/HttpListener/Resource"
+      }
+    },
+    "EcsInternalAlbHttpListenerBackendTargetGroupF60072D0": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "HealthCheckIntervalSeconds": 30,
+        "HealthCheckPath": "/api/health",
+        "HealthCheckTimeoutSeconds": 5,
+        "HealthyThresholdCount": 2,
+        "Name": "dc-production-be",
+        "Port": 3000,
+        "Protocol": "HTTP",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "TargetGroupAttributes": [
+          {
+            "Key": "stickiness.enabled",
+            "Value": "false"
+          }
+        ],
+        "TargetType": "ip",
+        "UnhealthyThresholdCount": 3,
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/InternalAlb/HttpListener/BackendTargetGroup/Resource"
+      }
+    },
+    "EcsInternalAlbHttpListenerBackendTargetRule42FB2E7A": {
+      "Type": "AWS::ElasticLoadBalancingV2::ListenerRule",
+      "Properties": {
+        "Actions": [
+          {
+            "TargetGroupArn": {
+              "Ref": "EcsInternalAlbHttpListenerBackendTargetGroupF60072D0"
+            },
+            "Type": "forward"
+          }
+        ],
+        "Conditions": [
+          {
+            "Field": "path-pattern",
+            "PathPatternConfig": {
+              "Values": ["/api/*"]
+            }
+          }
+        ],
+        "ListenerArn": {
+          "Ref": "EcsInternalAlbHttpListener205929B4"
+        },
+        "Priority": 10,
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/InternalAlb/HttpListener/BackendTargetRule/Resource"
+      }
+    },
+    "EcsInternalAlbHttpListenerFrontendTargetGroupED4E2A53": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "HealthCheckIntervalSeconds": 30,
+        "HealthCheckPath": "/health",
+        "HealthCheckTimeoutSeconds": 5,
+        "HealthyThresholdCount": 2,
+        "Name": "dc-production-fe",
+        "Port": 80,
+        "Protocol": "HTTP",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "TargetGroupAttributes": [
+          {
+            "Key": "stickiness.enabled",
+            "Value": "false"
+          }
+        ],
+        "TargetType": "ip",
+        "UnhealthyThresholdCount": 3,
+        "VpcId": {
+          "Ref": "NetworkVpc7FB7348F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/InternalAlb/HttpListener/FrontendTargetGroup/Resource"
+      }
+    },
+    "EcsFrontendTaskDefTaskRoleF3ADB8CB": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/FrontendTaskDef/TaskRole/Resource"
+      }
+    },
+    "EcsFrontendTaskDef3696CF67": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "ContainerDefinitions": [
+          {
+            "Essential": true,
+            "HealthCheck": {
+              "Command": ["CMD-SHELL", "wget -qO- http://localhost/health || exit 1"],
+              "Interval": 30,
+              "Retries": 3,
+              "StartPeriod": 10,
+              "Timeout": 5
+            },
+            "Image": {
+              "Fn::Join": [
+                "",
+                [
+                  {
+                    "Fn::Select": [
+                      4,
+                      {
+                        "Fn::Split": [
+                          ":",
+                          {
+                            "Fn::GetAtt": ["EcsFrontendRepoD511FE88", "Arn"]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  ".dkr.ecr.",
+                  {
+                    "Fn::Select": [
+                      3,
+                      {
+                        "Fn::Split": [
+                          ":",
+                          {
+                            "Fn::GetAtt": ["EcsFrontendRepoD511FE88", "Arn"]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  ".",
+                  {
+                    "Ref": "AWS::URLSuffix"
+                  },
+                  "/",
+                  {
+                    "Ref": "EcsFrontendRepoD511FE88"
+                  },
+                  ":latest"
+                ]
+              ]
+            },
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-group": {
+                  "Ref": "EcsFrontendLogs06A39C10"
+                },
+                "awslogs-stream-prefix": "frontend",
+                "awslogs-region": "us-east-1"
+              }
+            },
+            "Name": "frontend",
+            "PortMappings": [
+              {
+                "ContainerPort": 80,
+                "Protocol": "tcp"
+              }
+            ]
+          }
+        ],
+        "Cpu": "256",
+        "ExecutionRoleArn": {
+          "Fn::GetAtt": ["EcsFrontendTaskDefExecutionRole85F8C779", "Arn"]
+        },
+        "Family": "darkcloud-production-frontend",
+        "Memory": "512",
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": ["FARGATE"],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "TaskRoleArn": {
+          "Fn::GetAtt": ["EcsFrontendTaskDefTaskRoleF3ADB8CB", "Arn"]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/FrontendTaskDef/Resource"
+      }
+    },
+    "EcsFrontendTaskDefExecutionRole85F8C779": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/FrontendTaskDef/ExecutionRole/Resource"
+      }
+    },
+    "EcsFrontendTaskDefExecutionRoleDefaultPolicyD67C76CA": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": ["EcsFrontendRepoD511FE88", "Arn"]
+              }
+            },
+            {
+              "Action": "ecr:GetAuthorizationToken",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": ["logs:CreateLogStream", "logs:PutLogEvents"],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": ["EcsFrontendLogs06A39C10", "Arn"]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "EcsFrontendTaskDefExecutionRoleDefaultPolicyD67C76CA",
+        "Roles": [
+          {
+            "Ref": "EcsFrontendTaskDefExecutionRole85F8C779"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/FrontendTaskDef/ExecutionRole/DefaultPolicy/Resource"
+      }
+    },
+    "EcsFrontendLogs06A39C10": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/ecs/darkcloud-production/frontend",
+        "RetentionInDays": 14,
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/FrontendLogs/Resource"
+      }
+    },
+    "EcsFrontendService1A8D0A02": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": {
+          "Ref": "EcsClusterEAC0C105"
+        },
+        "DeploymentConfiguration": {
+          "Alarms": {
+            "AlarmNames": [],
+            "Enable": false,
+            "Rollback": false
+          },
+          "DeploymentCircuitBreaker": {
+            "Enable": true,
+            "Rollback": false
+          },
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 0
+        },
+        "DeploymentController": {
+          "Type": "ECS"
+        },
+        "DesiredCount": 0,
+        "EnableECSManagedTags": false,
+        "HealthCheckGracePeriodSeconds": 60,
+        "LaunchType": "FARGATE",
+        "LoadBalancers": [
+          {
+            "ContainerName": "frontend",
+            "ContainerPort": 80,
+            "TargetGroupArn": {
+              "Ref": "EcsInternalAlbHttpListenerFrontendTargetGroupED4E2A53"
+            }
+          }
+        ],
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "DISABLED",
+            "SecurityGroups": [
+              {
+                "Fn::GetAtt": ["NetworkFrontendSgCE5886B3", "GroupId"]
+              }
+            ],
+            "Subnets": [
+              {
+                "Ref": "NetworkVpcPrivateSubnet1Subnet6DD86AE6"
+              },
+              {
+                "Ref": "NetworkVpcPrivateSubnet2Subnet1BDBE877"
+              }
+            ]
+          }
+        },
+        "ServiceName": "darkcloud-production-frontend",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "TaskDefinition": {
+          "Ref": "EcsFrontendTaskDef3696CF67"
+        }
+      },
+      "DependsOn": [
+        "EcsFrontendTaskDefTaskRoleF3ADB8CB",
+        "EcsInternalAlbHttpListenerBackendTargetGroupF60072D0",
+        "EcsInternalAlbHttpListenerBackendTargetRule42FB2E7A",
+        "EcsInternalAlbHttpListenerFrontendTargetGroupED4E2A53",
+        "EcsInternalAlbHttpListener205929B4"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/FrontendService/Service"
+      }
+    },
+    "EcsBackendTaskDefTaskRole4541B107": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/BackendTaskDef/TaskRole/Resource"
+      }
+    },
+    "EcsBackendTaskDef9886B40F": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "ContainerDefinitions": [
+          {
+            "Environment": [
+              {
+                "Name": "PORT",
+                "Value": "3000"
+              },
+              {
+                "Name": "NODE_ENV",
+                "Value": "production"
+              },
+              {
+                "Name": "BETTER_AUTH_SECRET",
+                "Value": "darkcloud-production-secret-key-32-chars-min-length"
+              },
+              {
+                "Name": "BETTER_AUTH_URL",
+                "Value": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "http://",
+                      {
+                        "Fn::GetAtt": ["EcsInternalAlb5BF11012", "DNSName"]
+                      }
+                    ]
+                  ]
+                }
+              },
+              {
+                "Name": "CORS_ORIGIN",
+                "Value": "*"
+              },
+              {
+                "Name": "DB_HOST",
+                "Value": {
+                  "Fn::GetAtt": ["DatabasePostgresDbB06DC1C2", "Endpoint.Address"]
+                }
+              },
+              {
+                "Name": "DB_PORT",
+                "Value": {
+                  "Fn::GetAtt": ["DatabasePostgresDbB06DC1C2", "Endpoint.Port"]
+                }
+              },
+              {
+                "Name": "DB_NAME",
+                "Value": "darkcloud_ems"
+              }
+            ],
+            "Essential": true,
+            "HealthCheck": {
+              "Command": ["CMD-SHELL", "wget -qO- http://localhost:3000/api/health || exit 1"],
+              "Interval": 30,
+              "Retries": 3,
+              "StartPeriod": 30,
+              "Timeout": 5
+            },
+            "Image": {
+              "Fn::Join": [
+                "",
+                [
+                  {
+                    "Fn::Select": [
+                      4,
+                      {
+                        "Fn::Split": [
+                          ":",
+                          {
+                            "Fn::GetAtt": ["EcsBackendRepoA17601E2", "Arn"]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  ".dkr.ecr.",
+                  {
+                    "Fn::Select": [
+                      3,
+                      {
+                        "Fn::Split": [
+                          ":",
+                          {
+                            "Fn::GetAtt": ["EcsBackendRepoA17601E2", "Arn"]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  ".",
+                  {
+                    "Ref": "AWS::URLSuffix"
+                  },
+                  "/",
+                  {
+                    "Ref": "EcsBackendRepoA17601E2"
+                  },
+                  ":latest"
+                ]
+              ]
+            },
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-group": {
+                  "Ref": "EcsBackendLogs48A9B28A"
+                },
+                "awslogs-stream-prefix": "backend",
+                "awslogs-region": "us-east-1"
+              }
+            },
+            "Name": "backend",
+            "PortMappings": [
+              {
+                "ContainerPort": 3000,
+                "Protocol": "tcp"
+              }
+            ],
+            "Secrets": [
+              {
+                "Name": "DB_USERNAME",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "DatabaseDbCredentials437D3C11"
+                      },
+                      ":username::"
+                    ]
+                  ]
+                }
+              },
+              {
+                "Name": "DB_PASSWORD",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "DatabaseDbCredentials437D3C11"
+                      },
+                      ":password::"
+                    ]
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "Cpu": "512",
+        "ExecutionRoleArn": {
+          "Fn::GetAtt": ["EcsBackendTaskDefExecutionRole6E96AB35", "Arn"]
+        },
+        "Family": "darkcloud-production-backend",
+        "Memory": "1024",
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": ["FARGATE"],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "TaskRoleArn": {
+          "Fn::GetAtt": ["EcsBackendTaskDefTaskRole4541B107", "Arn"]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/BackendTaskDef/Resource"
+      }
+    },
+    "EcsBackendTaskDefExecutionRole6E96AB35": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/BackendTaskDef/ExecutionRole/Resource"
+      }
+    },
+    "EcsBackendTaskDefExecutionRoleDefaultPolicyA31E7C84": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": ["EcsBackendRepoA17601E2", "Arn"]
+              }
+            },
+            {
+              "Action": "ecr:GetAuthorizationToken",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": ["logs:CreateLogStream", "logs:PutLogEvents"],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": ["EcsBackendLogs48A9B28A", "Arn"]
+              }
+            },
+            {
+              "Action": ["secretsmanager:GetSecretValue", "secretsmanager:DescribeSecret"],
+              "Effect": "Allow",
+              "Resource": {
+                "Ref": "DatabaseDbCredentials437D3C11"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "EcsBackendTaskDefExecutionRoleDefaultPolicyA31E7C84",
+        "Roles": [
+          {
+            "Ref": "EcsBackendTaskDefExecutionRole6E96AB35"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/BackendTaskDef/ExecutionRole/DefaultPolicy/Resource"
+      }
+    },
+    "EcsBackendLogs48A9B28A": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/ecs/darkcloud-production/backend",
+        "RetentionInDays": 14,
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/BackendLogs/Resource"
+      }
+    },
+    "EcsBackendServiceAFC1B170": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": {
+          "Ref": "EcsClusterEAC0C105"
+        },
+        "DeploymentConfiguration": {
+          "Alarms": {
+            "AlarmNames": [],
+            "Enable": false,
+            "Rollback": false
+          },
+          "DeploymentCircuitBreaker": {
+            "Enable": true,
+            "Rollback": false
+          },
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 0
+        },
+        "DeploymentController": {
+          "Type": "ECS"
+        },
+        "DesiredCount": 0,
+        "EnableECSManagedTags": false,
+        "HealthCheckGracePeriodSeconds": 60,
+        "LaunchType": "FARGATE",
+        "LoadBalancers": [
+          {
+            "ContainerName": "backend",
+            "ContainerPort": 3000,
+            "TargetGroupArn": {
+              "Ref": "EcsInternalAlbHttpListenerBackendTargetGroupF60072D0"
+            }
+          }
+        ],
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "DISABLED",
+            "SecurityGroups": [
+              {
+                "Fn::GetAtt": ["NetworkBackendSg575CA286", "GroupId"]
+              }
+            ],
+            "Subnets": [
+              {
+                "Ref": "NetworkVpcPrivateSubnet1Subnet6DD86AE6"
+              },
+              {
+                "Ref": "NetworkVpcPrivateSubnet2Subnet1BDBE877"
+              }
+            ]
+          }
+        },
+        "ServiceName": "darkcloud-production-backend",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "TaskDefinition": {
+          "Ref": "EcsBackendTaskDef9886B40F"
+        }
+      },
+      "DependsOn": [
+        "EcsBackendTaskDefTaskRole4541B107",
+        "EcsInternalAlbHttpListenerBackendTargetRule42FB2E7A"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Ecs/BackendService/Service"
+      }
+    },
+    "TunnelTunnelTaskDefTaskRole16F31D55": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Tunnel/TunnelTaskDef/TaskRole/Resource"
+      }
+    },
+    "TunnelTunnelTaskDefTaskRoleDefaultPolicy4FE0DABD": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": ["secretsmanager:GetSecretValue", "secretsmanager:DescribeSecret"],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":secretsmanager:us-east-1:634236767496:secret:darkcloud/production/cloudflare-tunnel-token-??????"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "TunnelTunnelTaskDefTaskRoleDefaultPolicy4FE0DABD",
+        "Roles": [
+          {
+            "Ref": "TunnelTunnelTaskDefTaskRole16F31D55"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Tunnel/TunnelTaskDef/TaskRole/DefaultPolicy/Resource"
+      }
+    },
+    "TunnelTunnelTaskDef1948B257": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "ContainerDefinitions": [
+          {
+            "Command": ["tunnel", "--no-autoupdate", "run"],
+            "Essential": true,
+            "Image": "cloudflare/cloudflared:latest",
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-group": {
+                  "Ref": "TunnelTunnelLogsC9AE3F4A"
+                },
+                "awslogs-stream-prefix": "cloudflared",
+                "awslogs-region": "us-east-1"
+              }
+            },
+            "Name": "cloudflared",
+            "Secrets": [
+              {
+                "Name": "TUNNEL_TOKEN",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":secretsmanager:us-east-1:634236767496:secret:darkcloud/production/cloudflare-tunnel-token"
+                    ]
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "Cpu": "256",
+        "ExecutionRoleArn": {
+          "Fn::GetAtt": ["TunnelTunnelTaskDefExecutionRole582DE666", "Arn"]
+        },
+        "Family": "darkcloud-production-tunnel",
+        "Memory": "512",
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": ["FARGATE"],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "TaskRoleArn": {
+          "Fn::GetAtt": ["TunnelTunnelTaskDefTaskRole16F31D55", "Arn"]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Tunnel/TunnelTaskDef/Resource"
+      }
+    },
+    "TunnelTunnelTaskDefExecutionRole582DE666": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Tunnel/TunnelTaskDef/ExecutionRole/Resource"
+      }
+    },
+    "TunnelTunnelTaskDefExecutionRoleDefaultPolicyAF83A296": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": ["logs:CreateLogStream", "logs:PutLogEvents"],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": ["TunnelTunnelLogsC9AE3F4A", "Arn"]
+              }
+            },
+            {
+              "Action": ["secretsmanager:GetSecretValue", "secretsmanager:DescribeSecret"],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":secretsmanager:us-east-1:634236767496:secret:darkcloud/production/cloudflare-tunnel-token-??????"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "TunnelTunnelTaskDefExecutionRoleDefaultPolicyAF83A296",
+        "Roles": [
+          {
+            "Ref": "TunnelTunnelTaskDefExecutionRole582DE666"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Tunnel/TunnelTaskDef/ExecutionRole/DefaultPolicy/Resource"
+      }
+    },
+    "TunnelTunnelLogsC9AE3F4A": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/ecs/darkcloud-production/cloudflared",
+        "RetentionInDays": 14,
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Tunnel/TunnelLogs/Resource"
+      }
+    },
+    "TunnelTunnelServiceB7ECB85A": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": {
+          "Ref": "EcsClusterEAC0C105"
+        },
+        "DeploymentConfiguration": {
+          "Alarms": {
+            "AlarmNames": [],
+            "Enable": false,
+            "Rollback": false
+          },
+          "DeploymentCircuitBreaker": {
+            "Enable": true,
+            "Rollback": false
+          },
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 0
+        },
+        "DeploymentController": {
+          "Type": "ECS"
+        },
+        "DesiredCount": 0,
+        "EnableECSManagedTags": false,
+        "LaunchType": "FARGATE",
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "DISABLED",
+            "SecurityGroups": [
+              {
+                "Fn::GetAtt": ["NetworkTunnelSg90C2F1BA", "GroupId"]
+              }
+            ],
+            "Subnets": [
+              {
+                "Ref": "NetworkVpcPrivateSubnet1Subnet6DD86AE6"
+              },
+              {
+                "Ref": "NetworkVpcPrivateSubnet2Subnet1BDBE877"
+              }
+            ]
+          }
+        },
+        "ServiceName": "darkcloud-production-cloudflared",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "production"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CDK"
+          },
+          {
+            "Key": "Project",
+            "Value": "DarkCloud-EMS"
+          }
+        ],
+        "TaskDefinition": {
+          "Ref": "TunnelTunnelTaskDef1948B257"
+        }
+      },
+      "DependsOn": [
+        "TunnelTunnelTaskDefTaskRoleDefaultPolicy4FE0DABD",
+        "TunnelTunnelTaskDefTaskRole16F31D55"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/Tunnel/TunnelService/Service"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/31SXW/bMAz8LX1XtM4b+p4mWxGg2Ay76OtAy6zHxpEMkUpQCP7vg634Y+2wJ94dzxR1cqazuy/69gYuvDH1cdNSpWMpYI4KLvwrosl0fO6M2r3Y53yn8lC1ZMpQWZRBW1DhguATVC0u+qJtmZ0hEHJ2Ng/g2yEfyg+QBxC8wJvKPZ1BcBl8sILe4mxIm1zZVgTM7xNaUSWa4EneHrwL3bjDf4WDbTwy98rXrOMeBCpgLNF4FDXRg2UBa1CldeZJ+/sPwmTtFY8z+AQWGvQ6ppOHsak8gW9QVpvPhvedXqHxOhbYOSZxfrz8woY267hrAwv6oTfB7+AbGKLn4x5fyNIU/HvFWQGy6Ffa9dsS/ZlMeswEe4UtsJBpHdQVtGAN2eac6bjtupbM+LqPDur7sZc2+ouvfcSC9uqZ8KqfopjzXdN/TClC+u3WvFcEJx0Ll1pjzV1LZkwxoV61rmEdH10zHzXhvlcFsgs+hfAzSBekV9bVqF/50zn7qj/f6dubVyba+GCFTqiLVP8AfcJMg1cDAAA="
+      },
+      "Metadata": {
+        "aws:cdk:path": "DarkCloud-production/CDKMetadata/Default"
+      }
+    }
+  },
+  "Outputs": {
+    "NetworkVpcIdF213FEE5": {
+      "Description": "VPC ID",
+      "Value": {
+        "Ref": "NetworkVpc7FB7348F"
+      }
+    },
+    "DatabaseDbEndpointC40AEC92": {
+      "Description": "RDS PostgreSQL endpoint",
+      "Value": {
+        "Fn::GetAtt": ["DatabasePostgresDbB06DC1C2", "Endpoint.Address"]
+      }
+    },
+    "DatabaseDbSecretArnCBC92421": {
+      "Description": "Database credentials secret ARN",
+      "Value": {
+        "Ref": "DatabaseDbCredentials437D3C11"
+      }
+    },
+    "EcsAlbDnsName72DB73B1": {
+      "Description": "Internal ALB DNS name — use this in Cloudflare Tunnel ingress config",
+      "Value": {
+        "Fn::GetAtt": ["EcsInternalAlb5BF11012", "DNSName"]
+      }
+    },
+    "EcsFrontendEcrUri74DAADE7": {
+      "Description": "Frontend ECR repository URI",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            {
+              "Fn::Select": [
+                4,
+                {
+                  "Fn::Split": [
+                    ":",
+                    {
+                      "Fn::GetAtt": ["EcsFrontendRepoD511FE88", "Arn"]
+                    }
+                  ]
+                }
+              ]
+            },
+            ".dkr.ecr.",
+            {
+              "Fn::Select": [
+                3,
+                {
+                  "Fn::Split": [
+                    ":",
+                    {
+                      "Fn::GetAtt": ["EcsFrontendRepoD511FE88", "Arn"]
+                    }
+                  ]
+                }
+              ]
+            },
+            ".",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "EcsFrontendRepoD511FE88"
+            }
+          ]
+        ]
+      }
+    },
+    "EcsBackendEcrUriE7E7E433": {
+      "Description": "Backend ECR repository URI",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            {
+              "Fn::Select": [
+                4,
+                {
+                  "Fn::Split": [
+                    ":",
+                    {
+                      "Fn::GetAtt": ["EcsBackendRepoA17601E2", "Arn"]
+                    }
+                  ]
+                }
+              ]
+            },
+            ".dkr.ecr.",
+            {
+              "Fn::Select": [
+                3,
+                {
+                  "Fn::Split": [
+                    ":",
+                    {
+                      "Fn::GetAtt": ["EcsBackendRepoA17601E2", "Arn"]
+                    }
+                  ]
+                }
+              ]
+            },
+            ".",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "EcsBackendRepoA17601E2"
+            }
+          ]
+        ]
+      }
+    },
+    "EcsClusterNameC576E94D": {
+      "Description": "ECS Cluster name",
+      "Value": {
+        "Ref": "EcsClusterEAC0C105"
+      }
+    },
+    "TunnelTunnelServiceName3093D99F": {
+      "Description": "cloudflared ECS service name",
+      "Value": {
+        "Fn::GetAtt": ["TunnelTunnelServiceB7ECB85A", "Name"]
+      }
+    },
+    "TunnelTunnelTokenSecretArn7FAE083B": {
+      "Description": "Secrets Manager ARN for tunnel token — update this with your Cloudflare Tunnel token",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "arn:",
+            {
+              "Ref": "AWS::Partition"
+            },
+            ":secretsmanager:us-east-1:634236767496:secret:darkcloud/production/cloudflare-tunnel-token"
+          ]
+        ]
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  ["1", "2", "3", "4", "5"],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}
